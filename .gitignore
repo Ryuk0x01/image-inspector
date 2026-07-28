@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Output files from image-inspector runs
+metadata.txt
+hidden_data.txt
+output.txt
+*.out
+
+# Temporary test images (if test suite is interrupted)
+test_metadata.jpg
+test_steg_msb.png
+test_steg_lsb.png
+test_steg_eof.jpg

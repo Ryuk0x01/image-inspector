@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 import sys
+import os
+
+# Ensure the 'src' directory is in sys.path so relative sibling imports resolve
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from cli import parse_args
 from metadata import extract_metadata
 from stego import extract_steganography
@@ -7,7 +12,6 @@ from stego import extract_steganography
 def main():
     args = parse_args()
 
-    # If neither is specified, default to executing both
     run_metadata = args.metadata
     run_steg = args.steganography
     if not run_metadata and not run_steg:
