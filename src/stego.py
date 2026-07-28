@@ -7,14 +7,15 @@ def extract_steganography(image_path):
         with Image.open(image_path) as original_img:
             img = original_img.convert('RGB')
             width, height = img.size
-            # Read pixels while the image context is active
+
+            pixels = img.load()
             bits = []
             for y in range(height):
                 for x in range(width):
-                    pixel = img.getpixel((x, y))
-                    bits.append(pixel[0] & 1)  # Red LSB
-                    bits.append(pixel[1] & 1)  # Green LSB
-                    bits.append(pixel[2] & 1)  # Blue LSB
+                    r, g, b = pixels[x, y]
+                    bits.append(r & 1)  # Red LSB
+                    bits.append(g & 1)  # Green LSB
+                    bits.append(b & 1)  # Blue LSB
     except Exception as e:
         return f"Error loading image for steganography: {e}"
 
