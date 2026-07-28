@@ -13,6 +13,7 @@ metadata.txt
 hidden_data.txt
 output.txt
 *.out
+output/
 
 # Temporary test images (if test suite is interrupted)
 test_metadata.jpg
