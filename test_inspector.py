@@ -2,8 +2,8 @@
 import os
 import unittest
 from PIL import Image
-from PIL.ExifTags import TAGS
-from image_inspector import extract_metadata, extract_steganography, dms_to_decimal
+from metadata import extract_metadata, dms_to_decimal
+from stego import extract_steganography
 
 class TestImageInspector(unittest.TestCase):
     def setUp(self):
