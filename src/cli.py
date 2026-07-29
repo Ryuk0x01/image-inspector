@@ -12,7 +12,7 @@ OPTIONS:
     print(help_msg)
 
 def parse_args():
-    if '--help' in sys.argv or '-h' in sys.argv:
+    if "--help" in sys.argv or "-h" in sys.argv:
         print_help()
         sys.exit(0)
 
@@ -21,16 +21,21 @@ def parse_args():
         sys.exit(0)
 
     parser = argparse.ArgumentParser(add_help=False)
-    parser.add_argument('-m', '--metadata', action='store_true')
-    parser.add_argument('-s', '--steganography', action='store_true')
-    parser.add_argument('-o', '--output', type=str)
-    parser.add_argument('image_path', nargs='?')
-    
+    parser.add_argument("-m", "--metadata", action="store_true")
+    parser.add_argument("-s", "--steganography", action="store_true")
+    parser.add_argument("-o", "--output")
+    parser.add_argument("image_path", nargs="?")
+
     args = parser.parse_args()
-    
+
     if not args.image_path:
         print("Error: Input image path is required.", file=sys.stderr)
         print_help()
         sys.exit(1)
-        
+
+    if not args.metadata and not args.steganography:
+        print("Error: Please specify -m and/or -s.", file=sys.stderr)
+        print_help()
+        sys.exit(1)
+
     return args

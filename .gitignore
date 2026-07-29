@@ -4,9 +4,6 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Operating system files
-.DS_Store
-Thumbs.db
 
 # Output files from image-inspector runs
 metadata.txt
